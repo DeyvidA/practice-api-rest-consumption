@@ -1,0 +1,19 @@
+{
+  "name": "practice-api-rest-consumption",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeyvidA/practice-api-rest-consumption.git"
+  },
+  "author": "@deyvida",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DeyvidA/practice-api-rest-consumption/issues"
+  },
+  "homepage": "https://github.com/DeyvidA/practice-api-rest-consumption#readme"
+}
