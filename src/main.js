@@ -1,11 +1,16 @@
+const api = axios.create({
+  baseURL: "https://api.themoviedb.org/3",
+  headers: {
+    "Content-Type": "application/json;charset=utf-8",
+  },
+  params: {
+    api_key: API_KEY,
+  },
+});
+
 async function getTrendingMoviesPreview() {
-  const res = await fetch(
-    "https://api.themoviedb.org/3/trending/movie/week?api_key=" + API_KEY
-  );
-
-  const data = await res.json();
-
-  const movies = data.results;
+  const { data } = await api("/trending/movie/week");
+  const movies = data.movies;
 
   movies.forEach((movie) => {
     const trendingPreviewMoviesContainer = document.querySelector(
@@ -29,11 +34,7 @@ async function getTrendingMoviesPreview() {
 }
 
 async function getCategoriesPreview() {
-  const res = await fetch(
-    "https://api.themoviedb.org/3/genre/movie/list?api_key=" + API_KEY
-  );
-
-  const data = await res.json();
+  const { data } = await api("/genre/movie/list");
 
   const categories = data.genres;
 
@@ -47,7 +48,7 @@ async function getCategoriesPreview() {
 
     const categoryTitle = document.createElement("h3");
     categoryTitle.classList.add("category-title");
-    categoryTitle.setAttribute("id", category.name);
+    categoryTitle.setAttribute("id", `id${category.id}`);
 
     const categoryTitleText = document.createTextNode(category.name);
 
